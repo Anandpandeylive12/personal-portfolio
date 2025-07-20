@@ -35,6 +35,7 @@ My Script
   }
 
   //Navbar links Active state on scroll 
+document.addEventListener('contextmenu', event => event.preventDefault());
 
   let navbarlinks = select('#navbar .scrollto', true)
   const navbarlinksActive = () => {
@@ -229,3 +230,18 @@ My Script
       }
     }
   });
+document.addEventListener('keydown', function (e) {
+  if (
+    e.key === "F12" ||
+    (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) ||
+    (e.ctrlKey && e.key === "U")
+  ) {
+    e.preventDefault();
+    return false;
+  }
+});
+setInterval(function () {
+  if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
+    document.body.innerHTML = "<h1>DevTools is disabled!</h1>";
+  }
+}, 1000);
