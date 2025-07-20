@@ -201,3 +201,31 @@ My Script
   //Initializing Pure Counter 
   new PureCounter();
 })()
+
+  // Form Submit Spinner and Toast
+
+  const form = select('form');
+  const submitBtn = select('#submitBtn');
+  const btnText = select('#btnText');
+  const btnSpinner = select('#btnSpinner');
+
+  if (form) {
+    form.addEventListener('submit', function () {
+      // Show loading state
+      btnText.textContent = 'Sending...';
+      btnSpinner.classList.remove('d-none');
+      submitBtn.disabled = true;
+    });
+  }
+
+  // Show toast if status=success in URL
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('status') === 'success') {
+      const successToastEl = document.getElementById('successToast');
+      if (successToastEl) {
+        const toast = new bootstrap.Toast(successToastEl);
+        toast.show();
+      }
+    }
+  });
