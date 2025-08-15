@@ -1,0 +1,9 @@
+@import "tailwindcss";
+body {
+  background-color: #000;        /* bg-black */
+  color: #fff;                   /* text-white */
+  position: relative;            /* relative */
+  font-family: ui-sans-serif, system-ui, sans-serif; /* font-sans */
+  height: 100vh;                  /* h-screen */
+  overflow-x: hidden;             /* overflow-x-hidden */
+}
